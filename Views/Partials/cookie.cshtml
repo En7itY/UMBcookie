@@ -1,0 +1,125 @@
+﻿@using Umbraco_Cookies.App_Plugins.UMBcookies.Model;
+@using Newtonsoft.Json;
+
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+@{
+    var UMBCookies = Model.Content.GetPropertyValue<string>("UmbCookies");
+    var UmbCookieValues = JsonConvert.DeserializeObject<UmbCookieModel>(UMBCookies);
+
+    var CookiePosition = UmbCookieValues.Position;
+    var borderColor = "";
+    var CookieStatic = "";
+    var toggleLink = "true";
+    
+    if(@UmbCookieValues.Link != "")
+    {
+        toggleLink = "true";
+    } 
+    else if(@UmbCookieValues.Link == "")
+    {
+        toggleLink = "false";
+    }
+
+    if(UmbCookieValues.Position == "Banner bottom")
+    {
+        CookiePosition = "bottom";
+    }
+    if(UmbCookieValues.Position == "Banner top")
+    {
+        CookiePosition = "top";
+    }
+    if(UmbCookieValues.Position == "Banner top (pushdown)")
+    {
+        CookiePosition = "top";
+        //CookieStatic = "";
+    }
+    if(UmbCookieValues.Position == "Floating left")
+    {
+        CookiePosition = "bottom-left";
+    }
+    if(UmbCookieValues.Position == "Floating right")
+    {
+        CookiePosition = "bottom-right";
+    }
+
+    if(UmbCookieValues.Layout == "wire")
+    {
+        borderColor = UmbCookieValues.ButtonText;
+    }
+
+  }
+
+        <link rel="stylesheet" type="text/css" href="/css/cookieconsent.min.css" />
+        <script src="/scripts/cookieconsent.min.js"></script>
+        @if(UmbCookieValues.Position == "Banner top (pushdown)")
+        {
+        <script>
+            window.addEventListener("load", function () {
+                window.cookieconsent.initialise
+                    (
+                    {
+                        "palette":
+                        {
+                            "popup": {
+                                "background": "@UmbCookieValues.PopupBackground",
+                                "text": "@UmbCookieValues.PopupText"
+                            },
+                            "button": {
+                                "background": "@UmbCookieValues.ButtonBackground",
+                                "text": "@UmbCookieValues.ButtonText",
+                                //"border": "@borderColor"
+                            }
+                        },
+                        "showLink": @toggleLink,
+                        "theme": "@UmbCookieValues.Layout",
+                        "position": "@CookiePosition",
+                        "static": true,
+                "content":
+                {
+                    "message": "@UmbCookieValues.Message",
+                    "dismiss": "@UmbCookieValues.Dismiss",
+                    "link": "@UmbCookieValues.Policy",
+                    "href": "@UmbCookieValues.Link"
+                }
+                }
+            )
+        });
+        </script>
+        }
+        @if(UmbCookieValues.Position != "Banner top (pushdown)")
+        {
+        <script>
+            window.addEventListener("load", function () {
+                window.cookieconsent.initialise
+                    (
+                    {
+                        "palette":
+                        {
+                            "popup": {
+                                "background": "@UmbCookieValues.PopupBackground",
+                                "text": "@UmbCookieValues.PopupText"
+                            },
+                            "button": {
+                                "background": "@UmbCookieValues.ButtonBackground",
+                                "text": "@UmbCookieValues.ButtonText",
+                                //"border": "@borderColor"
+                            }
+                        },
+                        "showLink": @toggleLink,
+                        "theme": "@UmbCookieValues.Layout",
+                        "position": "@CookiePosition",
+                        "static": false,
+                        "content":
+                        {
+                            "message": "@UmbCookieValues.Message",
+                            "dismiss": "@UmbCookieValues.Dismiss",
+                            "link": "@UmbCookieValues.Policy",
+                            "href": "@UmbCookieValues.Link"
+                        }
+                    }
+                    )
+            });
+        </script>
+        }
+        <div>@UmbCookieValues.Message</div>
