@@ -1,61 +1,142 @@
 <div ng-controller="UMBcookies"  ng-model="model">
-    <div class="control-group umb-control-group">
-    <p>Message:</p><input  type="text" class="form-control" cols="15" rows="1" ng-model="model.value.message"></input >
-	<br/>
-	<br/>
-	<p>Dismiss button text:</p><input  type="text" class="form-control" cols="15" rows="1" ng-model="model.value.dismiss"></input>
-	<br/>
-	<br/>
-	<p>Policy link text:</p><input type="text" class="form-control" cols="15" rows="1" ng-model="model.value.policy"></input >
-    <br />
-    <br />
-    <p>Link to Policy:</p><input ng-model="model.value.link" type="text" class="form-control" cols="15" rows="1" cols="15" rows="1"></input>
-	<br/>
-    </div>
-    <div class="control-group umb-control-group">
-        <form>
-            <p>Position:</p>
-            <fieldset>
-                <input ng-model="model.value.position" type="radio" id="bb" name="Position" value="Banner bottom">
-                <label for="bb"> Banner bottom</label><br>
-                <input ng-model="model.value.position" type="radio" id="bt" name="Position" value="Banner top">
-                <label for="bt"> Banner top</label><br>
-                <input ng-model="model.value.position" type="radio" id="btp" name="Position" value="Banner top (pushdown)">
-                <label for="btb"> Banner top (pushdown)</label><br />
-                <input ng-model="model.value.position" type="radio" id="fl" name="Position" value="Floating left">
-                <label for="fl"> Floating left</label><br />
-                <input ng-model="model.value.position" type="radio" id="fr" name="Position" value="Floating right">
-                <label for="fr"> Floating right</label>
-            </fieldset>
-        </form>
-    </div>
-    <div class="control-group umb-control-group">
-        <form>
-            <p>Layout:</p>
-            <fieldset>
-                <input ng-model="model.value.layout" type="radio" id="bl" name="Layout" value="block">
-                <label for="bl"> block</label><br>
-                <input ng-model="model.value.layout" type="radio" id="ed" name="Layout" value="edgeless">
-                <label for="ed"> edgeless</label><br>
-                <input ng-model="model.value.layout" type="radio" id="cl" name="Layout" value="classic">
-                <label for="cl"> classic</label> <br />
-            </fieldset>
-        </form>
-    </div>
-    <div class="control-group umb-control-group">
-        <p>Button Background Color:</p><input ng-model="model.value.buttonBackground" type="color" />
-        <input ng-model="model.value.buttonBackground" type="text" class="form-control" cols="15"></input>
-        <br />
-        <br />
-        <p>Button Text Color:</p><input ng-model="model.value.buttonText" type="color" />
-        <input ng-model="model.value.buttonText" type="text" class="form-control" cols="15"></input>
-        <br />
-        <br />
-        <p>Popup background Color:</p><input ng-model="model.value.popupBackground" type="color" />
-        <input ng-model="model.value.popupBackground" type="text" class="form-control" cols="15"></input>
-        <br />
-        <br />
-        <p>Popup Text Color:</p><input ng-model="model.value.popupText" type="color" />
-        <input ng-model="model.value.popupText" type="text" class="form-control" cols="15"></input>
+    <div class="umb-property">
+        <div class="control-group umb-control-group">
+            <div class="umb-el-wrap">
+                <label class="control-label " for="bannerHeader" title="bannerHeader">
+                    Banner Header
+                </label>
+                <div class="umb-property-editor"model="property">
+                    <input type="text" name="textbox" ng-model="model.value.message" id="bannerHeader" class="umb-editor umb-textstring textstring">
+                    <span class="help-inline" val-msg-for="textbox" val-toggle-msg="valServer" style="display: none;"></span>
+                    <span class="help-inline" val-msg-for="textbox" val-toggle-msg="required" style="display: none;"><localize key="general_required" class="ng-isolate-scope ng-scope">Required</localize></span>
+                </div>
+            </div>
+        </div>
+        <div class="control-group umb-control-group">
+            <div class="umb-el-wrap">
+                <label class="control-label " for="bannerHeader" title="bannerHeader">
+                    Dismiss Button
+                </label>
+                <div class="umb-property-editor" model="property">
+                    <input type="text" name="textbox" ng-model="model.value.dismiss" id="bannerHeader" class="umb-editor umb-textstring textstring">
+                    <span class="help-inline" val-msg-for="textbox" val-toggle-msg="valServer" style="display: none;"></span>
+                    <span class="help-inline" val-msg-for="textbox" val-toggle-msg="required" style="display: none;"><localize key="general_required" class="ng-isolate-scope ng-scope">Required</localize></span>
+                </div>
+            </div>
+        </div>
+        <div class="control-group umb-control-group">
+            <div class="umb-el-wrap">
+                <label class="control-label " for="bannerHeader" title="bannerHeader">
+                    Policy Text
+                </label>
+                <div class="umb-property-editor" model="property">
+                    <input type="text" name="textbox" ng-model="model.value.policy" id="bannerHeader" class="umb-editor umb-textstring textstring">
+                    <span class="help-inline" val-msg-for="textbox" val-toggle-msg="valServer" style="display: none;"></span>
+                    <span class="help-inline" val-msg-for="textbox" val-toggle-msg="required" style="display: none;"><localize key="general_required" class="ng-isolate-scope ng-scope">Required</localize></span>
+                </div>
+            </div>
+        </div>
+        <div class="control-group umb-control-group">
+            <div class="umb-el-wrap">
+                <label class="control-label " for="bannerHeader" title="bannerHeader">
+                    Policy Link
+                </label>
+                <div class="umb-property-editor" model="property">
+                    <input type="text" name="textbox" ng-model="model.value.link" id="bannerHeader" class="umb-editor umb-textstring textstring">
+                    <span class="help-inline" val-msg-for="textbox" val-toggle-msg="valServer" style="display: none;"></span>
+                    <span class="help-inline" val-msg-for="textbox" val-toggle-msg="required" style="display: none;"><localize key="general_required" class="ng-isolate-scope ng-scope">Required</localize></span>
+                </div>
+            </div>
+        </div>
+        <div class="control-group umb-control-group">
+            <div class="umb-el-wrap">
+                <label class="control-label " for="bannerHeader" title="bannerHeader">
+                    Position
+                </label>
+                <form>
+                    <fieldset>
+                        <input ng-model="model.value.position" type="radio" id="bb" name="Position" value="Banner bottom">
+                        <label for="bb"> Banner bottom</label><br>
+                        <input ng-model="model.value.position" type="radio" id="bt" name="Position" value="Banner top">
+                        <label for="bt"> Banner top</label><br>
+                        <input ng-model="model.value.position" type="radio" id="btp" name="Position" value="Banner top (pushdown)">
+                        <label for="btp"> Banner top (pushdown)</label><br />
+                        <input ng-model="model.value.position" type="radio" id="fl" name="Position" value="Floating left">
+                        <label for="fl"> Floating left</label><br />
+                        <input ng-model="model.value.position" type="radio" id="fr" name="Position" value="Floating right">
+                        <label for="fr"> Floating right</label>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="control-group umb-control-group">
+            <div class="umb-el-wrap">
+                <label class="control-label " for="bannerHeader" title="bannerHeader">
+                    Layout
+                </label>
+                <form>
+                    <fieldset>
+                        <input ng-model="model.value.layout" type="radio" id="bl" name="Layout" value="block">
+                        <label for="bl"> block</label><br>
+                        <input ng-model="model.value.layout" type="radio" id="ed" name="Layout" value="edgeless">
+                        <label for="ed"> edgeless</label><br>
+                        <input ng-model="model.value.layout" type="radio" id="cl" name="Layout" value="classic">
+                        <label for="cl"> classic</label> <br />
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="control-group umb-control-group">
+            <div class="umb-el-wrap">
+                <label class="control-label " for="bannerHeader" title="bannerHeader">
+                    Button Background Color
+                </label>
+                <div class="umb-property-editor" model="property">
+                    <input ng-model="model.value.buttonBackground" type="color" />
+                    <input ng-model="model.value.buttonBackground" type="text" class="form-control" cols="15"></input>
+                    <span class="help-inline" val-msg-for="textbox" val-toggle-msg="valServer" style="display: none;"></span>
+                    <span class="help-inline" val-msg-for="textbox" val-toggle-msg="required" style="display: none;"><localize key="general_required" class="ng-isolate-scope ng-scope">Required</localize></span>
+                </div>
+            </div>
+        </div>
+        <div class="control-group umb-control-group">
+            <div class="umb-el-wrap">
+                <label class="control-label " for="bannerHeader" title="bannerHeader">
+                    Button Text Color
+                </label>
+                <div class="umb-property-editor" model="property">
+                    <input ng-model="model.value.buttonText" type="color" />
+                    <input ng-model="model.value.buttonText" type="text" class="form-control" cols="15"></input>
+                    <span class="help-inline" val-msg-for="textbox" val-toggle-msg="valServer" style="display: none;"></span>
+                    <span class="help-inline" val-msg-for="textbox" val-toggle-msg="required" style="display: none;"><localize key="general_required" class="ng-isolate-scope ng-scope">Required</localize></span>
+                </div>
+            </div>
+        </div>
+        <div class="control-group umb-control-group">
+            <div class="umb-el-wrap">
+                <label class="control-label " for="bannerHeader" title="bannerHeader">
+                    Popup background Color
+                </label>
+                <div class="umb-property-editor" model="property">
+                    <input ng-model="model.value.popupBackground" type="color" />
+                    <input ng-model="model.value.popupBackground" type="text" class="form-control" cols="15"></input>
+                    <span class="help-inline" val-msg-for="textbox" val-toggle-msg="valServer" style="display: none;"></span>
+                    <span class="help-inline" val-msg-for="textbox" val-toggle-msg="required" style="display: none;"><localize key="general_required" class="ng-isolate-scope ng-scope">Required</localize></span>
+                </div>
+            </div>
+        </div>
+        <div class="control-group umb-control-group">
+            <div class="umb-el-wrap">
+                <label class="control-label " for="bannerHeader" title="bannerHeader">
+                    Popup Text Color
+                </label>
+                <div class="umb-property-editor" model="property">
+                    <input ng-model="model.value.popupText" type="color" />
+                    <input ng-model="model.value.popupText" type="text" class="form-control" cols="15"></input>
+                    <span class="help-inline" val-msg-for="textbox" val-toggle-msg="valServer" style="display: none;"></span>
+                    <span class="help-inline" val-msg-for="textbox" val-toggle-msg="required" style="display: none;"><localize key="general_required" class="ng-isolate-scope ng-scope">Required</localize></span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
