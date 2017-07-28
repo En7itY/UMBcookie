@@ -4,7 +4,7 @@
 @inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 
 @{
-    var UMBCookies = Model.Content.GetPropertyValue<string>("UmbCookies");
+    var UMBCookies = Model.Content.Site().GetPropertyValue<string>("UmbCookies");
     var UmbCookieValues = JsonConvert.DeserializeObject<UmbCookieModel>(UMBCookies);
 
     var CookiePosition = UmbCookieValues.Position;
@@ -68,7 +68,6 @@
                             "button": {
                                 "background": "@UmbCookieValues.ButtonBackground",
                                 "text": "@UmbCookieValues.ButtonText",
-                                //"border": "@borderColor"
                             }
                         },
                         "showLink": @toggleLink,
@@ -103,7 +102,6 @@
                             "button": {
                                 "background": "@UmbCookieValues.ButtonBackground",
                                 "text": "@UmbCookieValues.ButtonText",
-                                //"border": "@borderColor"
                             }
                         },
                         "showLink": @toggleLink,
@@ -122,4 +120,3 @@
             });
         </script>
         }
-        <div>@UmbCookieValues.Message</div>
